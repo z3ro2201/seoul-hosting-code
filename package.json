@@ -1,24 +1,28 @@
 {
-  "name": "seoul-hosting",
+  "name": "seoul-hosting-hybrid",
   "version": "1.0.0",
-  "description": "서울특별시교육청 학교웹호스팅사이트 \"오늘의 급식\" 식단정보 파일 생성",
-  "license": "ISC",
-  "author": "",
-  "type": "commonjs",
-  "main": "app.js",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node scripts/dev.mjs",
+    "build": "node scripts/build.mjs",
+    "start": "node dist/server.mjs",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "axios": "^1.20.0",
     "express": "^5.2.1",
-    "xlsx": "^0.18.5"
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-router": "^7.18.4",
+    "dotenv": "^17.2.3"
   },
   "devDependencies": {
-    "@types/config": "^3.3.5",
     "@types/express": "^5.0.6",
-    "@types/node": "^26.6.4",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "esbuild": "^0.28.2",
     "tsx": "^4.23.15",
-    "typescript": "^7.0.2"
+    "typescript": "^5.9.3"
   }
 }
