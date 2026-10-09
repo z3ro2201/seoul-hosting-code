@@ -1,0 +1,24 @@
+{
+  "name": "seoul-hosting",
+  "version": "1.0.0",
+  "description": "서울특별시교육청 학교웹호스팅사이트 \"오늘의 급식\" 식단정보 파일 생성",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "axios": "^1.20.0",
+    "express": "^5.2.1",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@types/config": "^3.3.5",
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.4",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}
