@@ -1,0 +1,2 @@
+import { Link, useParams, useSearchParams } from "react-router";
+export default function Reservation(){const {id}=useParams();const [params]=useSearchParams();return <section className="booking-page"><h1>시설 예약 등록</h1><p>학교 {id} · {params.get('date')||'날짜 미선택'} · 시설 {params.get('resource')||'-'} · 교시 {params.get('period')||'-'}</p><p>예약자 인증과 서버 충돌 방지 처리가 완료되면 입력 폼을 연결할 예정입니다.</p><Link to={`/school/${id}/booking`}>예약현황으로 돌아가기</Link></section>}

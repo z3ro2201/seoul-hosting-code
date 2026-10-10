@@ -4,25 +4,29 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "node scripts/dev.mjs",
+    "dev": "tsx watch src/server/dev.ts",
     "build": "node scripts/build.mjs",
     "start": "node dist/server.mjs",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "dotenv": "^17.2.3",
+    "exceljs": "^4.4.0",
     "express": "^5.2.1",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "react-router": "^7.18.4",
-    "dotenv": "^17.2.3"
+    "@supabase/supabase-js": "^2.57.0"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
     "@types/node": "^24.0.0",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
     "esbuild": "^0.28.2",
     "tsx": "^4.23.15",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vite": "^8.3.4"
   }
 }

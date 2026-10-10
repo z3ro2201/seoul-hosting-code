@@ -1,0 +1,3 @@
+import { useState } from "react";
+import { Link } from "react-router";
+export default function BookingManagement(){const [id,setId]=useState('');return <section><div className="admin-page-heading"><div><h1>시설예약 관리</h1><p>학교별 예약현황과 시설 구성을 관리합니다.</p></div><Link className="admin-primary-link" to="/school/admin/booking/settings">예약 설정</Link></div><div className="admin-panel"><h2>학교별 예약현황</h2><p>학교 ID를 입력하면 해당 학교의 공개 예약현황을 확인할 수 있습니다.</p><label>학교 ID <input value={id} onChange={e=>setId(e.target.value.replace(/\D/g,''))} placeholder="예: 1"/></label> {id&&<Link to={`/school/${id}/booking`}>예약현황 열기 →</Link>}<p>전체 학교 예약 통계 및 관리 API는 관리자 인증 구현 후 연결합니다.</p></div></section>}
