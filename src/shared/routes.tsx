@@ -58,7 +58,15 @@ function Layout(): ReactNode {
       <main id="content">
         <Outlet />
       </main>
-      <footer>vitzro.kr</footer>
+      <footer>
+        <a href="https://2er0.io" target="_blank" rel="noopener noreferrer">
+          2er0.io
+        </a>{" "}
+        |{" "}
+        <a href="https://vitzro.kr" target="_blank" rel="noopener noreferrer">
+          vitzro.kr
+        </a>
+      </footer>
     </>
   );
 }
