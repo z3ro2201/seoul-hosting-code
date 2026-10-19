@@ -51,7 +51,7 @@ apiRouter.get("/meal", async (_req, res) => {
   if (!year || !month) return res.status(400).json({ status: 400, message: "급식 조회에 필요한 정보가 부족합니다." });
 
   const response = await fetch(
-    `https://open.neis.go.kr/hub/mealServiceDietInfo?Type=json&pIndex=1&pSize=100&ATPT_OFCDC_SC_CODE=${encodeURIComponent(officeCode)}&SD_SCHUL_CODE=${encodeURIComponent(schoolCode)}&MLSV_YMD=${year}${month.toString().padStart(2, "0")}`,
+    `https://open.neis.go.kr/hub/mealServiceDietInfo?Type=json&KEY=${process.env.NEIS_API_KEY}&pIndex=1&pSize=100&ATPT_OFCDC_SC_CODE=${encodeURIComponent(officeCode)}&SD_SCHUL_CODE=${encodeURIComponent(schoolCode)}&MLSV_YMD=${year}${month.toString().padStart(2, "0")}`,
   );
   if (!response.ok) return res.status(500).json({ status: 500, message: "조회에 문제가 발생했습니다." });
 
