@@ -63,7 +63,7 @@ apiRouter.get("/meal", async (_req, res) => {
     data: mealList.map((meal: any) => ({
       MealCode: Number(meal.MMEAL_SC_CODE) - 1,
       MealTitle: meal.MMEAL_SC_NM,
-      MealKcal: meal.CAL_INFO.replace(/[^\d.]/g, ""),
+      MealKcal: String(Math.round(Number(meal.CAL_INFO.replace(/[^\d.]/g, "")))),
       MealDate: meal.MLSV_YMD,
       MealMenu: String(meal.DDISH_NM ?? "")
         .split(/<br\s*\/?>/i)
