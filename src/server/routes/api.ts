@@ -54,7 +54,7 @@ apiRouter.get("/meal", async (_req, res) => {
     `https://open.neis.go.kr/hub/mealServiceDietInfo?Type=json&KEY=${process.env.NEIS_API_KEY}&pIndex=1&pSize=100&ATPT_OFCDC_SC_CODE=${encodeURIComponent(officeCode)}&SD_SCHUL_CODE=${encodeURIComponent(schoolCode)}&MLSV_YMD=${year}${month.toString().padStart(2, "0")}`,
   );
   if (!response.ok) return res.status(500).json({ status: 500, message: "조회에 문제가 발생했습니다." });
-
+  
   const result = await response.json();
   const mealList = result.mealServiceDietInfo?.[1]?.row ?? [];
   return res.json({
@@ -67,9 +67,9 @@ apiRouter.get("/meal", async (_req, res) => {
       MealDate: meal.MLSV_YMD,
       MealMenu: String(meal.DDISH_NM ?? "")
         .split(/<br\s*\/?>/i)
-        .map((menu: string) => menu.replace(/\([\d.]+\)/g, "").trim())
+        .map((menu: string) => menu.trim())
         .filter(Boolean)
-        .join(", "),
+        .join(", ") + " \n 01.난류, 02.우유, 03.메밀, 04.땅콩, 05.대두, 06.밀, 07.고등어, 08.게, 09.새우, 10.돼지고기, 11.복숭아, 12.토마토, 13.아황산류, 14.호두, 15.닭고기, 16.쇠고기, 17.오징어, 18.조개류(굴, 전복, 홍합 포함), 19.잣"
     })),
   });
 });
