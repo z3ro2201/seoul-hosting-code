@@ -46,7 +46,7 @@ excelRouter.post("/excel", async (req, res) => {
 
       const menu = String(meal.MealMenu ?? "").trim();
 
-      const calories = Number.parseFloat(String(meal.MealKcal ?? "")) || 0;
+      const calories = Math.round(Number.parseFloat(String(meal.MealKcal ?? "").replace(/[^\d.]/g, "")) || 0);
 
       sheet.addRow({
         date: String(meal.MealDate),
@@ -58,7 +58,7 @@ excelRouter.post("/excel", async (req, res) => {
     }
 
     sheet.getColumn("date").numFmt = "@";
-    sheet.getColumn("calories").numFmt = "0.##";
+    sheet.getColumn("calories").numFmt = "0";
 
     sheet.getRow(1).font = { bold: true };
     sheet.getRow(1).alignment = {
